@@ -1,4 +1,4 @@
-import { enableNextAuth } from '@lobechat/const';
+import { enableBetterAuth, enableNextAuth } from '@lobechat/const';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { memo } from 'react';
@@ -30,8 +30,9 @@ const PanelContent = memo<{ closePopover: () => void }>(({ closePopover }) => {
   const handleSignOut = () => {
     signOut();
     closePopover();
-    // NextAuth doesn't need to redirect to login page
-    if (enableNextAuth) return;
+    // NextAuth and Better Auth handle redirect in their own signOut methods
+    if (enableNextAuth || enableBetterAuth) return;
+    // Clerk uses /login page
     router.push('/login');
   };
 
