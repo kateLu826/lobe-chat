@@ -1,8 +1,4 @@
 {
   "buildCommand": "bun run build",
-  "installCommand": "npx bun@1.2.23 install",
-  "rewrites":  [
-    {"source": "/(.*)", "destination": "/"}
-  ]
-
+  "installCommand": "npx bun@1.2.23 install"
 }
